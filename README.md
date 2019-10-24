@@ -2,7 +2,9 @@
 
 
 #Installation
+
 npm install
 
-#RUN 
+#RUN
+
 npm run dev
