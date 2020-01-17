@@ -22,16 +22,16 @@ module.exports = {
     getById: (req, res, next) => {
         console.log(req.body);
         movieModel.findById(req.params.movieId, (err, movieInfo) => {
-            if (err){
-                next(err)
-            }else{
-				res.json({
-				status: "success",
-				message: "Movie found!",
-				data: {movies: movieInfo}
+					if (err){
+							next(err)
+					}else{
+						res.json({
+						status: "success",
+						message: "Movie found!",
+						data: {movies: movieInfo}
+					});
+				}
 			});
-            }
-        });
     },
 
     getAllMovies: (req, res, next) => {
@@ -59,5 +59,18 @@ module.exports = {
 					}
         
         })
-    }
+		},
+		
+		deletMovies: (req, res, next) => {
+			movieModel.deleteOne(req.params.moviesId, (err, movieInfo) => {
+				if (err) {
+					next(err)
+				} else {
+					res.json({
+						status: 'success',
+						message: 'Movies with ID:' + req.params.movieId + 'successfully deleted!'
+					})
+				} 
+			})
+		}
 }
