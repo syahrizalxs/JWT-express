@@ -17,7 +17,10 @@ module.exports = {
 			console.log(req.body)
         userModel.findOne({email: req.body.email}, function(err, userInfo){
             if (err){
-							next(err);
+              next(err);
+              res.json({
+                status: 'error', message: 'something wrong'
+              })
 						}
 						else{
 							if (bcrypt.compareSync(req.body.password, userInfo.password)){

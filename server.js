@@ -6,7 +6,7 @@ const app = express();
 
 //Import Routers
 const users = require('./routes/users')
-const movies = require('./routes/movies')
+const markets = require('./routes/markets')
 
 const PORT = process.env.PORT || 3000;
 
@@ -31,7 +31,7 @@ app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
     res.json({
-        'message' : 'API for Movies With JWT'
+        'message' : 'API for Markets Stock'
     });
 });
 
@@ -57,7 +57,7 @@ validateUser = (req, res, next) =>{
 app.use('/users', users);
 
 //Private Routes (With authenticate)
-app.use('/movies', validateUser, movies);
+app.use('/markets', validateUser, markets);
 
 app.listen(PORT, () =>{
     console.log('Server running on'+ PORT);
