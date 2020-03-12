@@ -3,6 +3,7 @@ const router =  express.Router();
 const MarketController = require('../app/api/controllers/market');
 
 router.get('/',MarketController.getAllMarkets)
+router.get('/:uid',MarketController.getMarketById)
 router.post('/',MarketController.create)
 router.delete('/',MarketController.deleteMarket)
 router.put('/',MarketController.updateMarket)

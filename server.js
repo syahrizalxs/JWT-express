@@ -7,6 +7,8 @@ const app = express();
 //Import Routers
 const users = require('./routes/users')
 const markets = require('./routes/markets')
+const suppliers = require('./routes/suppliers')
+
 
 const PORT = process.env.PORT || 3000;
 
@@ -55,7 +57,7 @@ validateUser = (req, res, next) =>{
 
 //Public Routes (No Authenticate)
 app.use('/users', users);
-
+app.use('/suppliers', suppliers)
 //Private Routes (With authenticate)
 app.use('/markets', validateUser, markets);
 

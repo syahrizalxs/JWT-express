@@ -18,7 +18,7 @@ module.exports = {
 			});
 			
 		},
-    getById: (req, res, next) => {
+    getMarketById: (req, res, next) => {
         marketModel.findById(req.params.marketId, (err, marketInfo) => {
 					if (err){
 							next(err)

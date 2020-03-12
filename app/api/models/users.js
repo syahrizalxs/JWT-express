@@ -21,6 +21,11 @@ const UserSchema = new Schema({
         trim: true,
         required: true,
     },
+    phone: {
+        type: String,
+        trim: true,
+        required: false
+    }
 });
 
 // hash user password before saving into database
@@ -50,4 +55,4 @@ async function hashPassword (user) {
     return hashedPassword
 };
 
-module.exports = mongoose.model('User',UserSchema);
+module.exports = mongoose.model('User', UserSchema);
