@@ -20,7 +20,7 @@ module.exports = {
 
   authenticate: (req, res, next) => {
     console.log(req.body)
-      userModel.findOne({email: req.body.email}, function(err, userInfo){
+      supplierModel.findOne({email: req.body.email}, function(err, userInfo){
         if (err){
           next(err);
           res.json({

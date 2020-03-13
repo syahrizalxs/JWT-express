@@ -36,7 +36,7 @@ const SupplierSchema = new Schema({
 // hash user password before saving into database
 SupplierSchema.pre('save', async function (next) {
   let user = this
-  const password = user.password;
+  const password = user.password
 
   const hashedPassword = await hashPassword(user);
   user.password = hashedPassword
@@ -46,7 +46,7 @@ SupplierSchema.pre('save', async function (next) {
 
 async function hashPassword (user) {
   const password = user.password
-  const saltRounds = 10;
+  const saltRounds = 10
 
   const hashedPassword = await new Promise((resolve, reject) => {
     bcrypt.hash(password, saltRounds, function(err, hash) {
@@ -57,4 +57,4 @@ async function hashPassword (user) {
   return hashedPassword
 };
 
-module.exports = mongoose.model('Supplier', UserSchema);
+module.exports = mongoose.model('Supplier', SupplierSchema)
