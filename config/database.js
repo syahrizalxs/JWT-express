@@ -1,3 +1,3 @@
 module.exports = {
-    url : 'mongodb://localhost:27017/node_movies_jwt'
+    url : 'mongodb://syh182:syahrizal182@ds157521.mlab.com:57521/jwtexpress'
 }

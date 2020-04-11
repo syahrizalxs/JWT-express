@@ -16,8 +16,10 @@ const PORT = process.env.PORT || 3000;
 const moongose = require('mongoose');
 const dbConfig = require('./config/database');
 
-moongose.connect(dbConfig.url,{
-    useNewUrlParser: true })
+moongose.connect('mongodb://syh182:syahrizal182@ds157521.mlab.com:57521/jwtexpressc',{
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+    })
     .then(() => {
         console.log('Successfully connected to database');
     })
